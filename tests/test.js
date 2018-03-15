@@ -39,3 +39,5 @@ const app_1 = async() =>
 }
 
 app_1();
+
+setTimeout( process.exit, 10000 );
