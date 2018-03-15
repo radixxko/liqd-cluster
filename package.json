@@ -1,19 +1,26 @@
 {
   "name": "liqd-cluster",
-  "version": "1.0.0",
-  "description": "Worker cluster",
+  "description": "Node.js Cluster",
+  "version": "0.1.0",
+  "author": "radixxko",
+  "license": "MIT",
   "main": "lib/cluster.js",
+  "files": [
+    "lib/"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node tests/test.js"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/radixxko/liqd-cluster.git"
   },
   "keywords": [
-    "liqd",
-    "cluster"
+    "cluster",
+    "liqd"
   ],
-  "author": "radixxko",
-  "license": "MIT"
+  "dependencies": {
+    "liqd-timed-promise": "^1.1.1",
+    "ws": "^4.1.0"
+  }
 }
