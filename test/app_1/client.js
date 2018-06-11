@@ -25,7 +25,7 @@ function sleep( ms ){ return new Promise( resolve => setTimeout( resolve, ms ) )
 
   let responses = new Map();
 
-  for( let i = 0; i < 1000; ++i )
+  for( let i = 0; i < 50; ++i )
   {
       let response = await request( 'localhost:'+process.argv[2], '/numbers/add', { a: 5, b: 6 });
 

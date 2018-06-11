@@ -6,17 +6,18 @@ function generateMessage()
 {
   if( Math.random() < 0.5 )
   {
-    return { worker: 'Numbers', method: ['add', 'subtract', 'multiply', 'divide'][Math.floor(Math.random()*4)], data: [ Math.random() * Number.MAX_SAFE_INTEGER, Math.random() * Number.MAX_SAFE_INTEGER ] };
+    //return { service: 'Numbers', method: 'add', data: [ Math.random() * Number.MAX_SAFE_INTEGER, Math.random() * Number.MAX_SAFE_INTEGER ] };
+    return { service: 'Numbers', method: ['add', 'subtract', 'multiply', 'divide'][Math.floor(Math.random()*4)], data: [ Math.random() * Number.MAX_SAFE_INTEGER, Math.random() * Number.MAX_SAFE_INTEGER ] };
   }
   else
   {
-    return { worker: 'Strings', method: ['concat', 'join'][Math.floor(Math.random()*2)], data: [ 'a', 'b' ] };
+    return { service: 'Strings', method: ['concat', 'join'][Math.floor(Math.random()*2)], data: [ 'a', 'b' ] };
   }
 }
 
 function testReply( msg, result )
 {
-  if( msg.worker === 'Numbers' )
+  if( msg.service === 'Numbers' )
   {
     switch ( msg.method )
     {
@@ -27,7 +28,7 @@ function testReply( msg, result )
       default: return false;
     }
   }
-  else if( msg.worker === 'Strings' )
+  else if( msg.service === 'Strings' )
   {
     switch ( msg.method )
     {
@@ -99,7 +100,7 @@ function testReply( msg, result )
 
     let zupaStart = process.hrtime();
 
-    //for( let i = 0; i < 5000; ++i )
+    for( let i = 0; i < 5000; ++i )
     {
         //let start = process.hrtime();
         let requestMsg = generateMessage();

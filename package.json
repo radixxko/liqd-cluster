@@ -1,7 +1,7 @@
 {
   "name": "liqd-cluster",
   "description": "Node.js Cluster",
-  "version": "0.1.1",
+  "version": "0.1.8",
   "author": "radixxko",
   "license": "MIT",
   "main": "lib/cluster.js",
@@ -9,7 +9,7 @@
     "lib/"
   ],
   "scripts": {
-    "test": "node tests/test.js"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
     "liqd"
   ],
   "dependencies": {
-    "liqd-timed-promise": "^1.1.1",
-    "ws": "^5.0.0"
+    "liqd-timed-promise": "^1.2.0",
+    "liqd-unique-id": "^1.0.0",
+    "ws": "^5.1.1"
   }
 }

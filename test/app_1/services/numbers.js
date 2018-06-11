@@ -1,10 +1,8 @@
 'use strict';
 
-const TimedPromise = require('liqd-timed-promise');
-
 const Cluster = require('../../../lib/cluster');
 
-module.exports = class Numbers extends Cluster.Worker
+module.exports = class Numbers extends Cluster.Service
 {
   constructor()
   {
@@ -13,7 +11,7 @@ module.exports = class Numbers extends Cluster.Worker
 
   add( a, b )
   {
-    return new TimedPromise( ( resolve, reject, timeout ) =>
+    return new Cluster.Promise( ( resolve, reject, remaining_ms ) =>
     {
       resolve( a + b );
     });

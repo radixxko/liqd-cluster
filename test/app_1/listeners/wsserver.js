@@ -7,7 +7,7 @@ class WSClient extends Cluster.Connection
 {
   constructor( ws, id )
   {
-    super( 'client', id );
+    super( 'client' + id );
 
     this.ws = ws;
 
@@ -15,10 +15,17 @@ class WSClient extends Cluster.Connection
     {
       msg = JSON.parse(msg);
 
-      let result = await Cluster.Worker.get(msg.worker)[msg.method](...msg.data).timeout( 3500, { ok: false, error: 'timeout' }).catch( e => e );
+      //let start = process.hrtime();
 
-      console.log(result);
-      //  this.send({ requestID: msg.requestID, result });
+      let result = await Cluster.Service.get(msg.service)[msg.method](...msg.data)
+        .timeout( 15000, { ok: false, error: 'timeout' })
+        .catch( e => e );
+
+      //let end = process.hrtime( start );
+
+      //console.log('Final Result', result);
+      //console.log('Elapsed', end[0] * 1e3 + end[1] / 1e6, 'ms');
+      this.send({ requestID: msg.requestID, result });
     });
   }
 

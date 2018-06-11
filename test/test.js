@@ -17,7 +17,9 @@ function run( script, ...parameters )
 
 const app_1 = async() =>
 {
-  let ports = [ 53127, 53128 ];
+  let startPort = 50000 + Math.ceil( Math.random() * 10000 );
+
+  let ports = [ startPort, startPort + 1 ];
   let servers = [], clients = [];
 
   let clientID = 0;
@@ -40,4 +42,4 @@ const app_1 = async() =>
 
 app_1();
 
-setTimeout( process.exit, 10000 );
+setTimeout( process.exit, 35000 );

@@ -10,9 +10,9 @@ const app = new Cluster(
   [
     { script: __dirname + '/listeners/wsserver.js', options: { port: parseInt(process.argv[3]) + 100 } }
   ],
-  workers:
+  services:
   [
-    { name: 'Numbers', script: __dirname + '/workers/numbers.js' },
-    { name: 'Strings', script: __dirname + '/workers/strings.js' }
+    { name: 'Numbers', script: __dirname + '/services/numbers.js' },
+    { name: 'Strings', script: __dirname + '/services/strings.js' }
   ]
 });

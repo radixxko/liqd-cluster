@@ -2,7 +2,7 @@
 
 const Cluster = require('../../../lib/cluster');
 
-module.exports = class Strings extends Cluster.Worker
+module.exports = class Strings extends Cluster.Service
 {
   constructor()
   {
