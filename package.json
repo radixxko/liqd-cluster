@@ -22,6 +22,6 @@
   "dependencies": {
     "liqd-timed-promise": "^1.2.0",
     "liqd-unique-id": "^1.0.0",
-    "ws": "^5.1.1"
+    "ws": "^5.2.3"
   }
 }
